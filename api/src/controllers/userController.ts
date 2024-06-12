@@ -12,8 +12,11 @@ const searchUsers = (
     return res.status(400).json({ error: 'Поле email является обязательным' });
   }
 
-  const users = getUsersByEmailAndNumber(email, number);
-  res.json(users);
+  // Имитация задержки обработки запроса в 5 секунд
+  setTimeout(() => {
+    const users = getUsersByEmailAndNumber(email, number);
+    res.json(users);
+  }, 5000);
 };
 
 export { searchUsers };
